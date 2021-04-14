@@ -7,10 +7,17 @@
     font-size: 14px;
 }
 
+:root{
+    --link: rgb(2, 163, 212);
+    --corBackgroundSecundaria: white;
+    --corTextPrimaria:black;
+    --corBotao:white;
+} 
+
 body{
     width: 100%;
     min-height: 100vh;
-    background-color:rgb(209, 206, 206);
+    background-color:rgb(128, 128, 128);
     margin: 0;
     padding: 0;
     display: flex;
@@ -50,7 +57,7 @@ body{
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--corBackgroundSecundaria);
     width: 100%;
     padding: 1.3rem 0;
     border: 1px solid lightgray;
@@ -84,16 +91,16 @@ body{
 }
 
 .instagram-logout{
-    color: rgb(2, 163, 212);
+    color: var(--link);
     margin-top: 1rem;
 }
 
 .not-account{
-    color: rgb(160, 160, 160);
+    color:var(--corTextPrimaria);
 }
 
 .link-blue{
-    color: rgb(2, 163, 212);
+    color: var(--link);
 }
 
 .get-the-app{
@@ -128,6 +135,50 @@ body{
     background-image: url('./img/googleplay-button.png');
 }
 
+/* EXTRAS */
+
+.ativar-dark{
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+
+div .group{
+    position: relative;
+}
+
+label{
+    position: absolute;
+    top: 17px;
+    right: 19px;
+    width: 58px;
+    height: 34px;
+    background-color: var(--corTextPrimaria);
+    border-radius: 22px;
+    padding: 5px 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+label img{
+    width: 1.5rem;
+    border-radius: 18px;
+    background-color: var(--corBotao);
+    position: relative;
+    transform: translateX(0);
+    transition: all ease .3s;
+}
+.ativar-dark:checked ~.dark-mode{
+    --link: rgb(129, 226, 255);
+    --corBackgroundSecundaria: rgb(141, 141, 141);
+    --corTextPrimaria:#fff;
+    --corBotao: black;
+}
+.ativar-dark:checked ~.dark-mode label img{
+    position: relative;
+    transform: translateX(25px);
+    transition: all ease .3s;
+}
+
 /* MEDIA QUERIES*/
 
 @media(max-width: 1024px){
@@ -137,8 +188,11 @@ body{
 }
 
 @media(max-width: 650px){
+    label {
+        right: -47px;
+    }
     body{
-        background-color: white;
+        background-color: rgb(128, 128, 128);
     }
     .instagram-wrapper{
         width: 90%;
@@ -154,5 +208,14 @@ body{
 
     .group{
         border: 1px solid transparent;
+        padding: 1.3rem 13px;
+    }
+
+    .download{
+        display:contents;
+    }
+
+    .app-download{
+        margin: 0.5rem
     }
 }
